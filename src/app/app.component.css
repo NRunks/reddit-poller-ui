@@ -1,0 +1,208 @@
+h1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  display: inline-flex;
+  vertical-align: top;
+}
+
+h5 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  display: inline-flex;
+}
+
+p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+small {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+.btn-primary {
+  background-color: #FF5700 !important;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+
+a:visited:not(.goto){
+  text-decoration: none;
+  color: #FF4500;
+}
+
+
+a:hover:not(.goto) {
+  text-decoration: none;
+  color: #FF8b60;
+}
+
+
+a:active {
+  text-decoration: none;
+}
+
+[class*="row"] {
+  margin-bottom: 1em;
+  justify-content: center;
+}
+
+.demo-justify-content-center {
+    text-align: center !important;
+    padding-top: 1rem;
+}
+
+#reddit-button-container {
+  background-color: #ddd;
+  padding: 10px;
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+}
+
+  #reddit-button-container > button {
+    display: block;
+    background-color: #bbb;
+    margin: 10px;
+    padding: 10px;
+    width: calc(100% - 20px);
+  }
+
+  .card {
+    background: #fff;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    img
+
+{
+  width: 100%;
+  height: 175px;
+}
+
+}
+
+.card-img-container {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden
+}
+
+.card-img-container > img {
+  flex-shrink: 0;
+  -webkit-flex-shrink: 0;
+  max-width: 70%;
+  max-height: 90%;
+}
+
+.card-img, .card-img-bottom, .card-img-top {
+  height: 175px !important;
+}
+
+.card-body {
+    padding-left: 0 !important;
+}
+
+@media (min-width: 992px) {
+  .card {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .card {
+    width: 100% !important;
+  }
+}
+.live-icon {
+  display: inline-block;
+  position: relative;
+  top: calc(50% - 5px);
+  background-color: red;
+  width: 10px;
+  height: 10px;
+  margin-left: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+  .live-icon:before {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: rgba(255, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    animation: live 2s ease-in-out infinite;
+    z-index: -1;
+  }
+
+@keyframes live {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  100% {
+    transform: scale(3.5, 3.5);
+    background-color: rgba(255, 0, 0, 0);
+  }
+}
+
+#subreddit-detail-container {
+  position: relative;
+  min-height: 64px;
+}
+
+#btn-grp-outter-wrapper {
+  width: 100%;
+  height: 3rem;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+#subreddit-detail-btn-container {
+  left: 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.grid-parent {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  text-align: left;
+}
+
+.grid-child1 {
+  grid-area: 1 / 1 / 3 / 2;
+}
+
+.grid-child1 > img{
+  width: 85px;
+  padding: .5rem;
+}
+
+.grid-child2 {
+  grid-area: 1 / 2 / 2 / 6;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+  text-overflow: ellipsis; 
+  overflow: hidden;
+}
+
+.grid-child3 {
+  grid-area: 2 / 2 / 3 / 6;
+}
+

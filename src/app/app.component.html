@@ -1,0 +1,134 @@
+
+<div class="container-fluid">
+  <div class="row demo-justify-content-center">
+    <div>
+      <h1 id="tableLabel">Reddit Demo</h1>
+      <h5>by Renardo Edgecombe</h5>
+    </div>
+  </div>
+  <div class="row demo-justify-content-center">
+    <p>Click the button below to fetch data from the reddit API. The subreddit data is fetched live and you may notice the results shift.</p>
+  </div>
+
+  <div id="reddit-button-container">
+    <button (click)="Authorize()" type="button" class="btn btn-primary"><img src="assets/reddit-logo.svg" alt="buttonpng" border="0" />Get Subreddits</button>
+  </div>
+  <div class="container text-center">
+
+    <small *ngIf="this.subreddits.length > 0">
+      You can toggle between the Trending and New posts using the snackbar also.
+    </small>
+    <div *ngIf="this.subreddits.length > 0" id="btn-grp-outter-wrapper">
+      <div id="subreddit-detail-btn-container" class="btn-group" (click)="onButtonGroupClick($event)">
+        <button #default class="btn btn-secondary" type="button">Trending</button>
+        <button #default class="btn btn-secondary" type="button">New</button>
+      </div>
+    </div>
+    <div class="row" *ngFor="let subreddit of subreddits; index as subr_i">
+      <div class="card" style="width: 18rem;">
+        <div class="card-img-container">
+          <img src="{{subreddit.data.banner_background_image}}" onerror="this.src='assets/reddit-logo.svg';" class="card-img-top" alt="..." />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{subreddit.data.display_name_prefixed}}</h5>
+          <p class="card-text">{{subreddit.data.public_description}}</p>
+          <a href="https://reddit.com{{subreddit.data.url}}" class="btn btn-primary goto">Go to {{subreddit.data.display_name_prefixed}}</a>
+        </div>
+        <div class="card-footer">
+          <div *ngIf="!(httpErr$ | async); else ErrBody" class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <div class="div_live">Live<span class="live-icon"></span></div>
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <div id="subreddit-detail-container">
+                    <div *ngIf="topPosts.length >= 10">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="grid-parent">
+                            <div class="grid-child1"> <img src="{{topPosts[subr_i].data.children[0].data.thumbnail}}" onerror="this.src='assets/reddit-logo.svg'"></div>
+                            <div class="grid-child2">
+                              <a href='https://reddit.com{{topPosts[subr_i].data.children[0].data.permalink}}'>{{topPosts[subr_i].data.children[0].data.title}}</a>
+                            </div>
+                            <div class="grid-child3"> {{topPosts[subr_i].data.children[0].data.author}} </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="grid-parent">
+                            <div class="grid-child1"> <img src="{{topPosts[subr_i].data.children[1].data.thumbnail}}" onerror="this.src='assets/reddit-logo.svg'"></div>
+                            <div class="grid-child2">
+                              <a href='https://reddit.com{{topPosts[subr_i].data.children[1].data.permalink}}'>{{topPosts[subr_i].data.children[1].data.title}}</a>
+                            </div>
+                            <div class="grid-child3"> {{topPosts[subr_i].data.children[1].data.author}} </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="grid-parent">
+                            <div class="grid-child1"> <img src="{{topPosts[subr_i].data.children[2].data.thumbnail}}" onerror="this.src='assets/reddit-logo.svg'"></div>
+                            <div class="grid-child2">
+                              <a href='https://reddit.com{{topPosts[subr_i].data.children[2].data.permalink}}'>{{topPosts[subr_i].data.children[2].data.title}}</a>
+                            </div>
+                            <div class="grid-child3"> {{topPosts[subr_i].data.children[2].data.author}} </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="grid-parent">
+                            <div class="grid-child1"> <img src="{{topPosts[subr_i].data.children[3].data.thumbnail}}" onerror="this.src='assets/reddit-logo.svg'"></div>
+                            <div class="grid-child2">
+                              <a href='https://reddit.com{{topPosts[subr_i].data.children[3].data.permalink}}'>{{topPosts[subr_i].data.children[3].data.title}}</a>
+                            </div>
+                            <div class="grid-child3"> {{topPosts[subr_i].data.children[3].data.author}} </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="grid-parent">
+                            <div class="grid-child1"> <img src="{{topPosts[subr_i].data.children[4].data.thumbnail}}" onerror="this.src='assets/reddit-logo.svg'"></div>
+                            <div class="grid-child2">
+                              <a href='https://reddit.com{{topPosts[subr_i].data.children[4].data.permalink}}'>{{topPosts[subr_i].data.children[4].data.title}}</a>
+                            </div>
+                            <div class="grid-child3"> {{topPosts[subr_i].data.children[4].data.author}} </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ng-template #ErrBody>
+            <div>
+              <img src="assets/reddit-error-md.jpg" />
+            </div>
+
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div #errorToast class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div id="errorToast" class="toast-header">
+      <img src="assets/exclamation-24.png" class="rounded mr-2" alt="error">
+      <strong class="mr-auto">Error</strong>
+      <small>Now</small>
+      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="toast-body">
+      {{errorMessage}}
+    </div>
+  </div>
+</div>
+
