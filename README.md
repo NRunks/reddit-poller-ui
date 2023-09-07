@@ -3,25 +3,5 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
 
 ## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+To run locally, it is a must that you are running node v16 and nothing later (errors were encountered using node v18). Next, change the clientID and clientSecret values in the environment.development.ts file to what you have on your reddit dev console. Next place the angularapp subfolder found in this repo in the reddit-poller project directory (found in this repo: https://github.com/NRunks/reddit-poller) alongside the webapi folder. Follow the rest of the instructions here: https://github.com/NRunks/reddit-poller
+ 
